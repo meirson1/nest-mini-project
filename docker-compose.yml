@@ -10,6 +10,16 @@ services:
       - "5432:5432"
     volumes:
       - dev-db-data:/var/lib/postgresql/data
+  test-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "123"
+      POSTGRES_DB: nest
+    ports:
+      - "5433:5432"
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data
 
 volumes:
   dev-db-data:
